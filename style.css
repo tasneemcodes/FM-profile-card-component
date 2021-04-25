@@ -8,6 +8,7 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
   background: hsl(185, 75%, 39%);
   color: #fff;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -17,15 +18,45 @@ body {
   height: 100vh;
 }
 
+/* SVG CIRCLES */
+.svg_circle_top, .svg_circle_bottom {
+  position: absolute;
+  width: 600px;
+  z-index: -1;
+}
+
+.svg_circle_top {
+  top: -250px;
+  left: 0;
+}
+
+.svg_circle_bottom {
+  bottom: -310px;
+  right: 8px;
+}
+
+
+/* THE CARD */
 .profile_card {
   background: #fff;
   color: #000;
   border-radius: 15px;
+  animation: card 2s linear 0.1s;
+  
+}
+
+@keyframes card {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* HEADER */
-.svg {
-  border-radius: 5px;
+.svg_pattern_card {
+  border-radius: 15px 15px 0 0;
 }
 
 /* PROFILE INFORMATION */
@@ -40,6 +71,7 @@ body {
   border-radius: 50%;
   margin-top: -60px;
   border: 5px solid #fff;
+  z-index: 1;
 }
 
 .profile_name, .profile_location {
@@ -66,9 +98,10 @@ body {
 /* PROFILE VIEWS */
 .profile_views {
   display: flex;
+  flex: 1;
   justify-content: space-around;
   align-items: center;
-  padding: 40px 0 40px 0;
+  padding: 40px 20px 30px 20px;
   text-align: center;
 }
 
@@ -79,13 +112,25 @@ body {
 
 .profile_description {
   color: hsl(0, 0%, 59%);
-  font-size: 14px;
+  font-size: 12px;
   text-transform: capitalize;
   padding: 5px 0 0 0;
+  letter-spacing: 1px;
 }
 
+/* RESPONSIVE */
 @media only screen and (max-width: 375px) {
-  .svg {
-    width: 300px;
+  .svg_circle_top, .svg_circle_bottom {
+    width: 350px;
   }
+  
+  .svg_circle_top {
+    top: -60px;
+    left: -190px;
+  }
+  
+  .svg_circle_bottom {
+    bottom: -50px;
+    right: -190px;
+  }  
 }
